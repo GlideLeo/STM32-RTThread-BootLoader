@@ -45,7 +45,8 @@ const char boot_log_buf[] =
 void rt_fota_print_log(void)
 {   
     LOG_RAW("%s", boot_log_buf);    
-	LOG_RAW("2016 - 2019 Copyright by Radiation @ warfalcon \r\n");
+	LOG_RAW("2016 - 2020 Copyright by Radiation @ warfalcon \r\n");
+    LOG_RAW("Port to RT-Thread full version by datasheep \r\n");
 	LOG_RAW("Version: %s build %s\r\n\r\n", RT_FOTA_SW_VERSION, __DATE__);
 }
 

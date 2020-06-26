@@ -10,7 +10,7 @@
 #ifndef _RT_FOTA_H_
 #define _RT_FOTA_H_
 
-#define RT_FOTA_SW_VERSION      "1.0.0"
+#define RT_FOTA_SW_VERSION      "1.0.0-F"
 /* Enable Ymodem OTA */
 #define PKG_USING_YMODEM_OTA
 

@@ -4,14 +4,19 @@
  * @Autor: JunQi Liu
  * @Date: 2020-06-26 06:29:58
  * @LastEditors: JunQi Liu
- * @LastEditTime: 2020-06-26 23:19:48
+ * @LastEditTime: 2020-06-27 03:36:00
  * @FilePath: \STM32-RTThread-BootLoader\README.md
 --> 
 
 # STM32-RTThread-BootLoader
 [![Build Status](https://travis-ci.com/JassyL/STM32-RTThread-BootLoader.svg?branch=master)](https://travis-ci.com/JassyL/STM32-RTThread-BootLoader)
+[![](https://img.shields.io/badge/LICENSE-Apache-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 ## 简介
+本项目参考[**基于STM32的开源Bootloader框架-RT-FOTA**](https://gitee.com/spunky_973/rt-fota)进行移植，原 Bootloader 运行于 RT-Thread nano，本移植版本运行 RT-Thread 完整版。
 
+项目所使用的 STM32 BSP 参考 [STM32系列BSP制作教程](https://github.com/RT-Thread/rt-thread/blob/master/bsp/stm32/docs/STM32%E7%B3%BB%E5%88%97BSP%E5%88%B6%E4%BD%9C%E6%95%99%E7%A8%8B.md)完成制作，只添加了必需的串口和SPI驱动，以及内部 FLASH 和 [SFUD](https://github.com/armink/SFUD) 支持，结构简洁。
+
+更多 Bootloader 设计细节，可以移步[**RT-FOTA**](https://gitee.com/spunky_973/rt-fota)
 
 ## 外设支持
 
@@ -20,7 +25,7 @@
 | **板载外设**      | **备注** |
 | -|-|
 | UART1        | PA9\PA10|
-| SPI1 FLASH    | PB3\PB4\PB5\PB14|
+| SPI1 FLASH(W25Q128)    | PB3\PB4\PB5\PB14|
 
 ## 使用说明
 
@@ -46,28 +51,13 @@ SPI1 GPIO Configuration
 
 双击 project.uvprojx 文件，打开 MDK5 工程，编译并下载程序到开发板。
 
-> 工程默认配置使用 xxx 仿真器下载程序，在通过 xxx 连接开发板的基础上，点击下载按钮即可下载程序到开发板
 
 #### 运行结果
 
-下载程序成功之后，系统会自动运行，【这里写开发板运行起来之后的现象，如：LED 闪烁等】。
-
 连接开发板对应串口到 PC , 在终端工具里打开相应的串口（115200-8-1-N），复位设备后，可以看到 RT-Thread 的输出信息:
 
-```bash
- \ | /
-- RT -     Thread Operating System
- / | \     4.0.3 build Jun 26 2020
- 2006 - 2020 Copyright by rt-thread team
-msh >
-```
+![开机界面](figures/poweron.png)
 
-## 注意事项
+## 其它说明与测试
 
-- xxx
-
-## 联系人信息
-
-维护人:
-
--  [xxx](https://个人主页), 邮箱：<xxx@xxx.com>
+参考博客链接:[STM32的开源Bootloader框架-RT-FOTA移植](https://datasheep.cn/71.html)

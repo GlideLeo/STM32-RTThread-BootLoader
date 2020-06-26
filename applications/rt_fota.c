@@ -6,6 +6,7 @@
  * Change Logs:
  * Date           Author       Notes
  * 2019-09-22     Warfalcon    first version
+ * 2020-06-27     JunQi Liu	   modify the factory reset button pin & LED pin & wait time
  */
 
 #include <stdint.h>
