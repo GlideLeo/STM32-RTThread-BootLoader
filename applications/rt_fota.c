@@ -86,7 +86,7 @@
 #endif
 
 #ifndef RT_FOTA_SIGNAL_LED_PIN
-#define RT_FOTA_SIGNAL_LED_PIN				89
+#define RT_FOTA_SIGNAL_LED_PIN				GET_PIN(C,13)
 #endif
 
 #ifndef RT_FOTA_DEFAULT_KEY_PIN
@@ -115,7 +115,7 @@ const char *led_on_mode      = "100,0,";   /* 常亮 */
 
 
 /* For default key */
-#define RT_FOTA_DEFAULT_KEY_PIN				68
+#define RT_FOTA_DEFAULT_KEY_PIN				GET_PIN(B, 7)
 
 /* For shell */
 static rt_sem_t shell_sem = RT_NULL;
