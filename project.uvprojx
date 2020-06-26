@@ -473,24 +473,14 @@
               <FilePath>applications\fal_flash_stm32f4_port.c</FilePath>
             </File>
             <File>
-              <FileName>fal_cfg.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\applications\fal_cfg.h</FilePath>
-            </File>
-            <File>
               <FileName>rt_fota.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\applications\rt_fota.c</FilePath>
-            </File>
-            <File>
-              <FileName>rt_fota.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\applications\rt_fota.h</FilePath>
+              <FilePath>applications\rt_fota.c</FilePath>
             </File>
             <File>
               <FileName>rt_fota_crc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\applications\rt_fota_crc.c</FilePath>
+              <FilePath>applications\rt_fota_crc.c</FilePath>
             </File>
           </Files>
         </Group>

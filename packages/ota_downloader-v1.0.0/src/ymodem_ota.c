@@ -15,6 +15,7 @@
 #include <finsh.h>
 #include <fal.h>
 #include <ymodem.h>
+#include <rt_fota.h>
 
 #define DBG_ENABLE
 #define DBG_SECTION_NAME               "ymodem"
@@ -28,7 +29,7 @@
 
 #ifdef PKG_USING_YMODEM_OTA
 
-#define DEFAULT_DOWNLOAD_PART "download"
+#define DEFAULT_DOWNLOAD_PART           RT_FOTA_FM_PART_NAME
 
 static char* recv_partition = DEFAULT_DOWNLOAD_PART;
 static size_t update_file_total_size, update_file_cur_size;
@@ -99,7 +100,7 @@ void ymodem_ota(uint8_t argc, char **argv)
         const char *operator = argv[1];
         if (!strcmp(operator, "-p")) {
             if (argc < 3) {
-                rt_kprintf("Usage: ymodem_ota -p <partiton name>.\n");
+                rt_kprintf("Usage: ymdown -p <partiton name>.\n");
                 return;
             } else {
                 /* change default partition to save firmware */
@@ -117,30 +118,32 @@ void ymodem_ota(uint8_t argc, char **argv)
     if (!rym_recv_on_device(&rctx, rt_console_get_device(), RT_DEVICE_OFLAG_RDWR | RT_DEVICE_FLAG_INT_RX,
                             ymodem_on_begin, ymodem_on_data, NULL, RT_TICK_PER_SECOND))
     {
-        rt_kprintf("Download firmware to flash success.\n");
-        rt_kprintf("System now will restart...\r\n");
-
-        /* wait some time for terminal response finish */
-        rt_thread_delay(rt_tick_from_millisecond(200));
-
-        /* Reset the device, Start new firmware */
-        extern void rt_hw_cpu_reset(void);
-        rt_hw_cpu_reset();
-        /* wait some time for terminal response finish */
-        rt_thread_delay(rt_tick_from_millisecond(200));
+        rt_kprintf("Download firmware to flash success.\n");              
+        
+        extern int rt_fota_part_fw_verify(const char *part_name);
+        if (rt_fota_part_fw_verify(recv_partition) >= 0)
+        {
+            rt_kprintf("Download firmware verify........[OK]\n");  
+            rt_kprintf("Reset system and apply new firmware.\n");  
+            /* wait some time for terminal response finish */
+            rt_thread_delay(RT_TICK_PER_SECOND); 
+            
+            extern void rt_hw_cpu_reset(void);
+            rt_hw_cpu_reset();
+        }
+        else
+        {
+            rt_kprintf("Download firmware verify........[FAILED]\n");           
+        }
     }
     else
     {
-        /* wait some time for terminal response finish */
-        rt_thread_delay(RT_TICK_PER_SECOND);
-        rt_kprintf("Update firmware fail.\n");
-    }
-
-    return;
+        rt_kprintf("Download firmware to flash fail.\n");
+    }    
 }
 /**
  * msh />ymodem_ota
 */
-MSH_CMD_EXPORT(ymodem_ota, Use Y-MODEM to download the firmware);
+MSH_CMD_EXPORT_ALIAS(ymodem_ota, ymdown, Use Y-MODEM to download the firmware);
 
 #endif /* PKG_USING_YMODEM_OTA */

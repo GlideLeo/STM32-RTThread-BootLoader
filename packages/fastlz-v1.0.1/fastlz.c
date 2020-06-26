@@ -27,8 +27,9 @@
 #if !defined(FASTLZ__COMPRESSOR) && !defined(FASTLZ_DECOMPRESSOR)
 
 #include <rtconfig.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <rtthread.h>
+//#include <stdio.h>
+//#include <stdlib.h>
 
 #ifdef RT_USING_HEAP
 #define malloc     rt_malloc

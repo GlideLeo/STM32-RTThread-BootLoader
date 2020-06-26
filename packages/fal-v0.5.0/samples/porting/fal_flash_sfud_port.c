@@ -54,7 +54,8 @@ static int init(void)
 
 #ifdef RT_USING_SFUD
     /* RT-Thread RTOS platform */
-    sfud_dev = rt_sfud_flash_find_by_dev_name(FAL_USING_NOR_FLASH_DEV_NAME);
+    //sfud_dev = rt_sfud_flash_find_by_dev_name(FAL_USING_NOR_FLASH_DEV_NAME);
+    sfud_dev = (sfud_flash_t)rt_sfud_flash_find("spi10");
 #else
     /* bare metal platform */
     extern sfud_flash sfud_norflash0;
