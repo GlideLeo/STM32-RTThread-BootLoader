@@ -36,6 +36,14 @@ menu "On-chip Peripheral Drivers"
                 bool "Enable UART2"
                 default y
         endif
+
+    config BSP_USING_SPI_FLASH
+        bool "Enable SPI FLASH(SPI1)"
+        select BSP_USING_SPI
+        select BSP_USING_SPI1
+        select RT_USING_SFUD
+        select RT_SFUD_USING_SFDP
+        default n
         
     source "libraries/HAL_Drivers/Kconfig"
     
