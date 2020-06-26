@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER, STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>.;rt-thread\include;applications;.;board;board\CubeMX_Config\Inc;libraries\HAL_Drivers;libraries\HAL_Drivers\config;libraries\HAL_Drivers\drv_flash;packages\fal-v0.5.0\inc;rt-thread\libcpu\arm\common;rt-thread\libcpu\arm\cortex-m4;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\drivers\spi;rt-thread\components\drivers\include;rt-thread\components\drivers\spi\sfud\inc;rt-thread\components\drivers\include;rt-thread\components\finsh;rt-thread\components\libc\compilers\common;libraries\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Inc;libraries\STM32F4xx_HAL\CMSIS\Device\ST\STM32F4xx\Include;libraries\STM32F4xx_HAL\CMSIS\Include</IncludePath>
+              <IncludePath>.;rt-thread\include;applications;.;board;board\CubeMX_Config\Inc;libraries\HAL_Drivers;libraries\HAL_Drivers\config;libraries\HAL_Drivers\drv_flash;packages\fal-v0.5.0\inc;packages\SignalLed-v1.2.0\inc;packages\SignalLed-v1.2.0;rt-thread\libcpu\arm\common;rt-thread\libcpu\arm\cortex-m4;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\drivers\spi;rt-thread\components\drivers\include;rt-thread\components\drivers\spi\sfud\inc;rt-thread\components\drivers\include;rt-thread\components\finsh;rt-thread\components\libc\compilers\common;libraries\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Inc;libraries\STM32F4xx_HAL\CMSIS\Device\ST\STM32F4xx\Include;libraries\STM32F4xx_HAL\CMSIS\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -468,14 +468,9 @@
               <FilePath>applications\spi_flash_init.c</FilePath>
             </File>
             <File>
-              <FileName>fal_cfg.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\applications\fal_cfg.h</FilePath>
-            </File>
-            <File>
               <FileName>fal_flash_stm32f4_port.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\applications\fal_flash_stm32f4_port.c</FilePath>
+              <FilePath>applications\fal_flash_stm32f4_port.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -625,6 +620,16 @@
               <FileName>fal_flash_sfud_port.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\fal-v0.5.0\samples\porting\fal_flash_sfud_port.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>SignalLed</GroupName>
+          <Files>
+            <File>
+              <FileName>signal_led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\SignalLed-v1.2.0\src\signal_led.c</FilePath>
             </File>
           </Files>
         </Group>

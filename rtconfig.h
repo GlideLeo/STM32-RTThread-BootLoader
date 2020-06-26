@@ -159,6 +159,11 @@
 
 /* peripheral libraries and drivers */
 
+#define PKG_USING_SIGNAL_LED
+#define PKG_USING_SIGNAL_LED_V120
+
+/* signalLed Options */
+
 #define BSP_USING_SPI1
 
 /* miscellaneous packages */
