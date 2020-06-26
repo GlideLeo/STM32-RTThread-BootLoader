@@ -224,7 +224,8 @@ int rtthread_startup(void)
 
     /* show RT-Thread version */
     //rt_show_version();        //change LOGO
-
+    extern void rt_fota_print_log(void);
+    rt_fota_print_log();
     /* timer system initialization */
     rt_system_timer_init();
 

@@ -12,6 +12,10 @@
 #include <rtdevice.h>
 #include <board.h>
 #include <fal.h>
+#if defined(RT_USING_FINSH) && defined(FINSH_USING_MSH)
+#include <finsh.h>
+#include <shell.h>
+#endif
 
 #define DBG_ENABLE
 #define DBG_SECTION_NAME                    "main"
@@ -31,11 +35,12 @@
 
 
 const char boot_log_buf[] = 
-" ____ _____      _____ ___  _____  _        \r\n\
-|  _ \\_   _|	|  ___/ _ \\ _   _|/ \\      \r\n\
-| |_) || |_____ | |_  || ||  | | / _ \\      \r\n\
-|  _ < | |_____ |  _| ||_||  | |/ ___ \\     \r\n\
-|_| \\_\\|_|	|_|   \\___/  |_/_/   \\_\\  \r\n";
+"\r\n\
+ ____ _____      _____ ___  _____  _        	\r\n\
+|  _ \\_   _|	|  ___/ _ \\ _   _|/ \\      		\r\n\
+| |_) || |_____ | |_  || ||  | | / _ \\      	\r\n\
+|  _ < | |_____ |  _| ||_||  | |/ ___ \\     	\r\n\
+|_| \\_\\|_|	|_|   \\___/  |_/_/   \\_\\  		\r\n";
 
 void rt_fota_print_log(void)
 {   
@@ -47,7 +52,9 @@ void rt_fota_print_log(void)
 
 int main(void)
 {
-    
+		#if defined(RT_USING_FINSH) && defined(FINSH_USING_MSH)
+			finsh_set_prompt("rt-fota />");
+		#endif
     extern void rt_fota_init(void);
     rt_fota_init();
 
