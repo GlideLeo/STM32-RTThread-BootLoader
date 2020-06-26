@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER, STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>.;rt-thread\include;applications;.;board;board\CubeMX_Config\Inc;libraries\HAL_Drivers;libraries\HAL_Drivers\config;libraries\HAL_Drivers\drv_flash;packages\fal-v0.5.0\inc;packages\SignalLed-v1.2.0\inc;packages\SignalLed-v1.2.0;rt-thread\libcpu\arm\common;rt-thread\libcpu\arm\cortex-m4;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\drivers\spi;rt-thread\components\drivers\include;rt-thread\components\drivers\spi\sfud\inc;rt-thread\components\drivers\include;rt-thread\components\finsh;rt-thread\components\libc\compilers\common;libraries\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Inc;libraries\STM32F4xx_HAL\CMSIS\Device\ST\STM32F4xx\Include;libraries\STM32F4xx_HAL\CMSIS\Include</IncludePath>
+              <IncludePath>.;rt-thread\include;applications;.;board;board\CubeMX_Config\Inc;libraries\HAL_Drivers;libraries\HAL_Drivers\config;libraries\HAL_Drivers\drv_flash;packages\fal-v0.5.0\inc;packages\fastlz-v1.0.1;packages\ota_downloader-v1.0.0;packages\quicklz-v1.0.1;packages\SignalLed-v1.2.0\inc;packages\SignalLed-v1.2.0;packages\tinycrypt-v1.0.0\include;rt-thread\libcpu\arm\common;rt-thread\libcpu\arm\cortex-m4;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\drivers\spi;rt-thread\components\drivers\include;rt-thread\components\drivers\spi\sfud\inc;rt-thread\components\drivers\include;rt-thread\components\finsh;rt-thread\components\libc\compilers\common;rt-thread\components\utilities\ymodem;libraries\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Inc;libraries\STM32F4xx_HAL\CMSIS\Device\ST\STM32F4xx\Include;libraries\STM32F4xx_HAL\CMSIS\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -471,6 +471,26 @@
               <FileName>fal_flash_stm32f4_port.c</FileName>
               <FileType>1</FileType>
               <FilePath>applications\fal_flash_stm32f4_port.c</FilePath>
+            </File>
+            <File>
+              <FileName>fal_cfg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\applications\fal_cfg.h</FilePath>
+            </File>
+            <File>
+              <FileName>rt_fota.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\rt_fota.c</FilePath>
+            </File>
+            <File>
+              <FileName>rt_fota.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\applications\rt_fota.h</FilePath>
+            </File>
+            <File>
+              <FileName>rt_fota_crc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\rt_fota_crc.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -624,12 +644,72 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>fastlz</GroupName>
+          <Files>
+            <File>
+              <FileName>fastlz.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\fastlz-v1.0.1\fastlz.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>ota_downloader</GroupName>
+          <Files>
+            <File>
+              <FileName>ymodem_ota.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\ota_downloader-v1.0.0\src\ymodem_ota.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>quicklz</GroupName>
+          <Files>
+            <File>
+              <FileName>quicklz.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\quicklz-v1.0.1\quicklz.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>SignalLed</GroupName>
           <Files>
             <File>
               <FileName>signal_led.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\SignalLed-v1.2.0\src\signal_led.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>TinyCrypt</GroupName>
+          <Files>
+            <File>
+              <FileName>tiny_aes.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\tinycrypt-v1.0.0\src\tiny_aes.c</FilePath>
+            </File>
+            <File>
+              <FileName>tiny_base64.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\tinycrypt-v1.0.0\src\tiny_base64.c</FilePath>
+            </File>
+            <File>
+              <FileName>tiny_md5.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\tinycrypt-v1.0.0\src\tiny_md5.c</FilePath>
+            </File>
+            <File>
+              <FileName>tiny_sha1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\tinycrypt-v1.0.0\src\tiny_sha1.c</FilePath>
+            </File>
+            <File>
+              <FileName>tiny_sha2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\tinycrypt-v1.0.0\src\tiny_sha2.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -839,6 +919,16 @@
               <FileName>time.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\libc\compilers\common\time.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Utilities</GroupName>
+          <Files>
+            <File>
+              <FileName>ymodem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\utilities\ymodem\ymodem.c</FilePath>
             </File>
           </Files>
         </Group>
