@@ -44,6 +44,10 @@ menu "On-chip Peripheral Drivers"
         select RT_USING_SFUD
         select RT_SFUD_USING_SFDP
         default n
+
+    config BSP_USING_ON_CHIP_FLASH
+        bool "Enable on-chip FLASH"
+        default n
         
     source "libraries/HAL_Drivers/Kconfig"
     

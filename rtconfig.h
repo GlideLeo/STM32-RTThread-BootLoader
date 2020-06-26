@@ -148,6 +148,14 @@
 
 /* system packages */
 
+#define PKG_USING_FAL
+#define FAL_DEBUG_CONFIG
+#define FAL_DEBUG 1
+#define FAL_PART_HAS_TABLE_CFG
+#define FAL_USING_SFUD_PORT
+#define FAL_USING_NOR_FLASH_DEV_NAME "norflash0"
+#define PKG_USING_FAL_V00500
+#define PKG_FAL_VER_NUM 0x00500
 
 /* peripheral libraries and drivers */
 
@@ -174,6 +182,7 @@
 #define BSP_USING_UART1
 #define BSP_USING_UART2
 #define BSP_USING_SPI_FLASH
+#define BSP_USING_ON_CHIP_FLASH
 
 /* Board extended module Drivers */
 

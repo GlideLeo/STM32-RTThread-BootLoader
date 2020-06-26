@@ -6,6 +6,7 @@ CPPPATH = [cwd, str(Dir('#'))]
 src     = Split("""
 main.c
 spi_flash_init.c
+fal_flash_stm32f4_port.c
 """)
 
 group = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH)

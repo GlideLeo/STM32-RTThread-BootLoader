@@ -11,6 +11,7 @@
 #include <rtthread.h>
 #include <rtdevice.h>
 #include <board.h>
+#include <fal.h>
 
 /* defined the LED0 pin: PB1 */
 #define LED0_PIN    GET_PIN(C, 13)
@@ -20,6 +21,7 @@ int main(void)
     int count = 1;
     /* set LED0 pin mode to output */
     rt_pin_mode(LED0_PIN, PIN_MODE_OUTPUT);
+		fal_init(); 
 
     while (count++)
     {
