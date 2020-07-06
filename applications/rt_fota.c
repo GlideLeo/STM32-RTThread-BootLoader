@@ -876,7 +876,7 @@ static int rt_fota_start_application(void)
     
     __disable_irq();
     HAL_DeInit();
-
+	__set_CONTROL(0);
 	//用户代码区第二个字为程序开始地址(复位地址)
 	app_func = (rt_fota_app_func)*(__IO uint32_t *)(app_addr + 4);
 	/* Configure main stack */
