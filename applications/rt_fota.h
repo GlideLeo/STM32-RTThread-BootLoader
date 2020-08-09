@@ -26,7 +26,7 @@
 
 /* FOTA default partition name */
 #ifndef RT_FOTA_DF_PART_NAME
-#define RT_FOTA_DF_PART_NAME    "download"
+#define RT_FOTA_DF_PART_NAME    "df_area"
 #endif
 
 /* AES256 encryption algorithm option */

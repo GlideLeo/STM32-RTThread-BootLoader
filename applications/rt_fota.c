@@ -116,7 +116,7 @@ const char *led_on_mode      = "100,0,";   /* 常亮 */
 
 
 /* For default key */
-#define RT_FOTA_DEFAULT_KEY_PIN				GET_PIN(B, 7)
+#define RT_FOTA_DEFAULT_KEY_PIN				GET_PIN(D, 3)
 
 /* For shell */
 static rt_sem_t shell_sem = RT_NULL;
