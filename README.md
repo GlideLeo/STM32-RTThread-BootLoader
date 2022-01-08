@@ -18,6 +18,9 @@
 
 更多 Bootloader 设计细节，可以移步[**RT-FOTA**](https://gitee.com/spunky_973/rt-fota)
 
+## 搭配使用
+如果自动化固件打包需求，可以参考该工具[rt_ota_package_cmd](https://github.com/JassyL/rt_ota_package_cmd)
+
 ## 外设支持
 
 本 BootLoader 目前对外设的支持情况如下：
